@@ -1,19 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Button from './components/common/Button'
+import styled, { ThemeProvider } from 'theme/styled-components';
+import theme from 'theme/theme';
+import FundModule from 'components/FundModule/FundModule';
 
-function App() {
+const FundContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding: 50px;
+`;
+
+const App: React.FunctionComponent = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Button>click</Button>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <FundContainer>
+        <FundModule />
+      </FundContainer>
+    </ThemeProvider>
   );
 }
 
