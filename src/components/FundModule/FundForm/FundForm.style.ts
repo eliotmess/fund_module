@@ -14,3 +14,10 @@ export const Form = styled.form`
     display: flex;
     justify-content: space-between;
 `;
+
+export const InfoContainer = styled.div<{$expanded: boolean}>`
+    width: 100%;
+    max-height: ${({ $expanded }) => $expanded ? `300px` : 0};
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+`

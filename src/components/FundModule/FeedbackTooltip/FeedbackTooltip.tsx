@@ -12,7 +12,11 @@ interface IProps {
   fundSubmitted: boolean;
 }
 
-const FeedbackTooltip: React.FunctionComponent<IProps> = ({ fundGoal, fundRaised, fundSubmitted }) => {
+const FeedbackTooltip: React.FunctionComponent<IProps> = ({
+  fundGoal,
+  fundRaised,
+  fundSubmitted,
+}) => {
   const t = useTheme();
 
   const tooltipColor = useMemo(() => {
@@ -34,16 +38,15 @@ const FeedbackTooltip: React.FunctionComponent<IProps> = ({ fundGoal, fundRaised
     } else {
       return (
         <Text $color={t.colors.white}>
-          <BoldSpan>${fundGoal - fundRaised}</BoldSpan> still needed for this project
+          <BoldSpan>${fundGoal - fundRaised}</BoldSpan> still needed for this
+          project
         </Text>
       );
     }
   }, [fundGoal, fundRaised, fundSubmitted, t]);
 
   return (
-    <>
-      <TooltipComponent bgColor={tooltipColor}>{tooltipMsg}</TooltipComponent>
-    </>
+    <TooltipComponent bgColor={tooltipColor}>{tooltipMsg}</TooltipComponent>
   );
 };
 

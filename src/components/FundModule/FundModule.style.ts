@@ -6,3 +6,9 @@ export const ModuleContainer = styled.div`
     width: 100%;
     max-width: 300px;
 `;
+
+export const ButtonsContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+`;

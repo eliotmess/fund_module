@@ -10,23 +10,19 @@ const TextButton = styled(Button)`
   border-radius: 5px;
   color: ${({ theme }) => theme.colors.white};
   width: calc(50% - 7.5px);
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 
 interface IProps {
   msg: string;
+  disabled: boolean;
 }
 
-interface IOptionalProps {
-  clickHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
-type TProps = IProps & Partial<IOptionalProps>;
-
-const SubmitButton: React.FunctionComponent<TProps> = ({
-  msg,
-  clickHandler,
-}) => (
-  <TextButton type="submit" onClick={clickHandler}>
+const SubmitButton: React.FunctionComponent<IProps> = ({ msg, disabled }) => (
+  <TextButton type="submit" disabled={disabled}>
     {msg}
   </TextButton>
 );

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Text = styled.p<{ $color?: string; $spanColor?: string; $marginBottom?: number }>`
-  font-size: 14px;
-  line-height: 18px;
+export const Text = styled.p<{ $color?: string; $spanColor?: string; $marginBottom?: number; $size?: number }>`
+  font-size: ${({ $size }) => $size ?? 14 }px;
+  line-height: ${({ $size }) => $size ?? 18 }px;
   padding: 0;
   margin: 0;
   color: ${({ $color, theme }) => $color ?? theme.colors.darkText};
