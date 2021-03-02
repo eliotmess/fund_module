@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
-export const Text = styled.p<{ $color?: string; $spanColor?: string; $marginBottom?: number; $size?: number }>`
-  font-size: ${({ $size }) => $size ?? 14 }px;
-  line-height: ${({ $size }) => $size ?? 18 }px;
+export const Text = styled.p<{ $color?: string; $spanColor?: string; $marginBottom?: string; $size?: string }>`
+  font-size: ${({ $size, theme }) => $size ?? theme.fontSize.s };
+  line-height: ${({ $size, theme }) => $size ?? theme.fontSize.m };
   padding: 0;
   margin: 0;
   color: ${({ $color, theme }) => $color ?? theme.colors.darkText};
-  margin-bottom: ${({ $marginBottom }) => `${$marginBottom}px` ?? 0};
+  margin-bottom: ${({ $marginBottom }) => $marginBottom ?? 0};
 
   & span {
-    color: ${({ $color, $spanColor }) => $spanColor ?? 'inherit'};
+    color: ${({ $spanColor }) => $spanColor ?? 'inherit'};
   }
 `;
 

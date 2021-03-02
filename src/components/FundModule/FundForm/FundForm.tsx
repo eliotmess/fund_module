@@ -1,12 +1,12 @@
 //* third party packages
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 //* components
 import { FundFormContainer, InfoContainer } from "./FundForm.style";
 import { Text, BoldSpan } from "components/common/Text";
 import GiveFundForm from "components/FundModule/FundForm/Form";
 //* hooks
 import { useTheme } from "theme/styled-components";
-import DefaultButton from "components/common/buttons/DefaultButton";
+import TextButton from "components/common/buttons/TextButton";
 
 interface IProps {
   handleSubmitFund: (v: number, resolve: () => void) => void;
@@ -20,22 +20,23 @@ const FundForm: React.FunctionComponent<IProps> = ({
   const t = useTheme();
   const [infoExpanded, setInfoExpanded] = useState(false);
 
+  const handleExpandInfo = useCallback(() => {
+    setInfoExpanded((prevState) => !prevState);
+  }, []);
+
   return (
     <FundFormContainer>
-      <Text $spanColor={t.colors.orange} $marginBottom={15}>
+      <Text $spanColor={t.colors.orange} $marginBottom={t.spacing.normal}>
         <BoldSpan>Only 3 days left</BoldSpan> to fund this project.
       </Text>
-      <Text $spanColor={t.colors.orange} $marginBottom={15}>
+      <Text $marginBottom={t.spacing.normal}>
         Join the <BoldSpan>{noOfFunders}</BoldSpan> other donors who have
         already supported this project. Every dollar helps.
       </Text>
       <GiveFundForm submitHandler={handleSubmitFund} />
-      <DefaultButton
-        msg="click"
-        clickHandler={() => setInfoExpanded(!infoExpanded)}
-      />
+      <TextButton msg="Why give $50?" clickHandler={handleExpandInfo} />
       <InfoContainer $expanded={infoExpanded}>
-        <Text $color={t.colors.blue} $size={10} $marginBottom={15}>
+        <Text $color={t.colors.blue} $size={t.fontSize.xs}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
           vel elit condimentum gravida. Cras sed urna at elit molestie
           pellentesque sed vulputate dui. Praesent et eleifend ipsum. Cras nec
@@ -44,6 +45,10 @@ const FundForm: React.FunctionComponent<IProps> = ({
           Integer congue lorem urna, eget luctus nisi laoreet nec. Nullam et
           lacus vitae felis tincidunt vehicula et sed augue.
         </Text>
+        <TextButton
+          msg="Click to hide more info"
+          clickHandler={handleExpandInfo}
+        />
       </InfoContainer>
     </FundFormContainer>
   );

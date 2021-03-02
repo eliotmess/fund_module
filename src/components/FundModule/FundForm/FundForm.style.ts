@@ -7,6 +7,7 @@ export const FundFormContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 15px;
+    box-shadow: 0px 1px 0px 0px ${({ theme }) => theme.colors.borderColor};
 `;
 
 export const Form = styled.form`

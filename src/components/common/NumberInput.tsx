@@ -7,7 +7,7 @@ const InputWrapper = styled.div`
 
   &::after {
     content: "$";
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.fontSize.m};
     color: ${({ theme }) => theme.colors.darkText};
     position: absolute;
     top: 10px;
@@ -18,8 +18,8 @@ const InputWrapper = styled.div`
 
 const InputField = styled.input`
   width: 100%;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: ${({ theme }) => theme.fontSize.m};
+  font-weight: 600;
   padding: 10px 15px 10px 25px;
   background-color: ${({ theme }) => theme.colors.white};
   border: 0.5px solid ${({ theme }) => theme.colors.borderColor};

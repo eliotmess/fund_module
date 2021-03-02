@@ -2,15 +2,13 @@ import styled from "theme/styled-components";
 import Button from "components/common/buttons/Button";
 
 const Btn = styled(Button)`
-  font-family: RalewayBold;
-  font-size: ${({ theme }) => theme.fontSize.s};
-  padding: 10px 15px;
-  background-color: ${({ theme }) => theme.colors.lightGray};
-  border: 0.5px solid ${({ theme }) => theme.colors.borderColor};
-  border-radius: 5px;
-  color: ${({ theme }) => theme.colors.darkText};
-  width: calc(50% - 7.5px);
-  box-shadow: 0px 1px 0px 0px ${({ theme }) => theme.colors.borderColor};
+  display: inline;
+  text-align: left;
+  width: fit-content;
+  font-family: RalewayMediumItalic;
+  font-size: ${({ theme }) => theme.fontSize.xs};
+  color: ${({ theme }) => theme.colors.blue};
+  margin: 7.5px 0;
 `;
 
 interface IProps {
