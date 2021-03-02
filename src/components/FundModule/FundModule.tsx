@@ -5,10 +5,16 @@ import { ButtonsContainer, ModuleContainer } from "./FundModule.style";
 import FeedbackTooltip from "./FeedbackTooltip/FeedbackTooltip";
 import ProgressBar from "components/common/ProgressBar";
 import ContainerColumn from "components/common/ContainerColumn";
-import FundForm from "./FundForm/FundForm";
+import FundForm from "components/FundModule/FundForm/FundForm";
 import DefaultButton from "components/common/buttons/DefaultButton";
+import MailTo from "components/common/MailTo";
+//* hooks
+import { useTheme } from "theme/styled-components";
+//*
+import emailTemplate from "templates/email";
 
 const FundModule: React.FunctionComponent = () => {
+  const t = useTheme();
   const [fundGoal] = useState<number>(500);
   const [noOfFunders, setNoOfFunders] = useState<number>(42);
   const [fundRaised, setFundRaised] = useState<number>(57);
@@ -19,7 +25,7 @@ const FundModule: React.FunctionComponent = () => {
 
   useEffect(() => {
     if (fundSubmitted) {
-      setTimeout(() => setFundSubmitted(false), 2000);
+      setTimeout(() => setFundSubmitted(false), 1000);
     }
   }, [fundSubmitted]);
 
@@ -45,8 +51,22 @@ const FundModule: React.FunctionComponent = () => {
         />
       </ContainerColumn>
       <ButtonsContainer>
-        <DefaultButton msg={"Save for later"} clickHandler={() => {}} />
-        <DefaultButton msg={"Tell your friends"} clickHandler={() => {}} />
+        <DefaultButton
+          msg={"Save for later"}
+          clickHandler={() => {}}
+          width={t.width.halfWidthWithSpacing}
+        />
+        <MailTo
+          width={t.width.halfWidthWithSpacing}
+          subject={emailTemplate.subject}
+          body={emailTemplate.body}
+        >
+          <DefaultButton
+            msg={"Tell your friends"}
+            clickHandler={() => {}}
+            width={t.width.fullWidth}
+          />
+        </MailTo>
       </ButtonsContainer>
     </ModuleContainer>
   );

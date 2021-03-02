@@ -20,6 +20,10 @@ const theme = {
     },
     spacing: {
         normal: '15px'
+    },
+    width: {
+        halfWidthWithSpacing: "calc(50% - 7.5px)",
+        fullWidth: "100%",
     }
 };
 

@@ -4,9 +4,9 @@ import React, { useCallback, useState } from "react";
 import { FundFormContainer, InfoContainer } from "./FundForm.style";
 import { Text, BoldSpan } from "components/common/Text";
 import GiveFundForm from "components/FundModule/FundForm/Form";
+import TextButton from "components/common/buttons/TextButton";
 //* hooks
 import { useTheme } from "theme/styled-components";
-import TextButton from "components/common/buttons/TextButton";
 
 interface IProps {
   handleSubmitFund: (v: number, resolve: () => void) => void;
