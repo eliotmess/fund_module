@@ -11,6 +11,7 @@ const Bar = styled.div<{ $progress: number }>`
   height: 100%;
   width: ${({ $progress }) => $progress}%;
   background-color: ${({ theme }) => theme.colors.orange};
+  transition: width 250ms ease-out;
 `;
 
 interface IProps {

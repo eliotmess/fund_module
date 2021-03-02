@@ -28,17 +28,6 @@ const FundModule: React.FunctionComponent = () => {
   } = useContext(FormContext);
   const [fundSubmitted, setFundSubmitted] = useState(false);
 
-  //* first hydrate with data from Local Storage (if exist)
-  //* if not – save initial values to Local Storage
-  useEffect(() => {
-    const raisedFund = LocalStorageService.get(ELocalStorage.FUND_RAISED);
-    const fundersNumber = LocalStorageService.get(ELocalStorage.NO_OF_FUNDERS);
-    if (raisedFund) {
-      console.log("save raised fund");
-      LocalStorageService.set(ELocalStorage.FUND_RAISED, fundRaised.toString());
-    }
-  }, [fundRaised, noOfFunders]);
-
   useEffect(() => {
     if (fundSubmitted) {
       setTimeout(() => setFundSubmitted(false), 1000);
@@ -55,6 +44,10 @@ const FundModule: React.FunctionComponent = () => {
     [fundRaised, setFundRaised, noOfFunders, setNoOfFunders]
   );
 
+  const handleSaveForLater = useCallback(() => {
+    LocalStorageService.set(ELocalStorage.FUND_DRAFT, userFund.toString());
+  }, [userFund]);
+
   return (
     <ModuleContainer>
       <FeedbackTooltip fundSubmitted={fundSubmitted} />
@@ -65,7 +58,7 @@ const FundModule: React.FunctionComponent = () => {
       <ButtonsContainer>
         <DefaultButton
           msg={"Save for later"}
-          clickHandler={() => {}}
+          clickHandler={handleSaveForLater}
           width={t.width.halfWidthWithSpacing}
         />
         <MailTo

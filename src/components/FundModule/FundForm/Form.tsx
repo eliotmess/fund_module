@@ -1,10 +1,19 @@
 //* third party packages
-import React, { FormEvent, useCallback, useContext, useState } from "react";
+import React, {
+  FormEvent,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 //* components
 import { Form } from "./FundForm.style";
 import SubmitButton from "components/common/buttons/SubmitButton";
 import Input from "components/common/NumberInput";
+//* other
 import { FormContext } from "FormContext";
+import LocalStorageService from "services/LocalStorageService";
+import { ELocalStorage } from "constants/index";
 
 interface IProps {
   submitHandler: (v: number, resolve: () => void) => void;
@@ -15,15 +24,27 @@ const GiveFundForm: React.FunctionComponent<IProps> = ({ submitHandler }) => {
   const [value, setValue] = useState<number>(50);
   const [submitting, setSubmitting] = useState(false);
 
+  //* hydrate with saved form data (if exists)
+  useEffect(() => {
+    const savedDraft = LocalStorageService.get(ELocalStorage.FUND_DRAFT);
+    if (savedDraft) {
+      const userFund = parseInt(savedDraft);
+      setUserFund(userFund);
+      setValue(userFund);
+    }
+  }, [setUserFund]);
+
   const handleValidate = useCallback(
     (e) => {
       //* TODO
-      //* custom validation with custom error handling cat be added
-      //* at the moment due lack of time I stayed with HTML5 default validation
+      //* custom validation with custom error handling could be implemented
+      //* at the moment due to lack of time I stayed with default HTML5 validation
       //* of number input
       const v = parseInt(e.target.value);
-      setValue(v);
-      setUserFund(v);
+      if (v) {
+        setValue(v);
+        setUserFund(v);
+      }
     },
     [setUserFund]
   );

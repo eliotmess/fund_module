@@ -20,6 +20,9 @@ export const FormContext = createContext<TFormContext>({
   setUserFund: (v: number) => {},
 });
 
+//* context API used as simplified state management tool
+//* and to avoid props drilling
+//* would be more useful in normal use case f.e. if data would be fetched from API
 const FormContextComponent: React.FunctionComponent = ({ children }) => {
   const [fundGoal] = useState<number>(500);
   const [noOfFunders, setNoOfFunders] = useState<number>(42);
