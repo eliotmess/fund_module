@@ -1,26 +1,32 @@
 //* third party packages
-import React, { FormEvent, useCallback, useState } from "react";
+import React, { FormEvent, useCallback, useContext, useState } from "react";
 //* components
 import { Form } from "./FundForm.style";
 import SubmitButton from "components/common/buttons/SubmitButton";
 import Input from "components/common/NumberInput";
+import { FormContext } from "FormContext";
 
 interface IProps {
   submitHandler: (v: number, resolve: () => void) => void;
 }
 
 const GiveFundForm: React.FunctionComponent<IProps> = ({ submitHandler }) => {
+  const { setUserFund } = useContext(FormContext);
   const [value, setValue] = useState<number>(50);
   const [submitting, setSubmitting] = useState(false);
 
-  const handleValidate = useCallback((e) => {
-    //* TODO
-    //* custom validation with custom error handling cat be added
-    //* at the moment due lack of time I stayed with HTML5 default validation
-    //* of number input
-    const v = parseInt(e.target.value);
-    setValue(v);
-  }, []);
+  const handleValidate = useCallback(
+    (e) => {
+      //* TODO
+      //* custom validation with custom error handling cat be added
+      //* at the moment due lack of time I stayed with HTML5 default validation
+      //* of number input
+      const v = parseInt(e.target.value);
+      setValue(v);
+      setUserFund(v);
+    },
+    [setUserFund]
+  );
 
   const handleSubmit = useCallback(
     (e: FormEvent) => {

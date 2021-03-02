@@ -16,7 +16,7 @@ const Btn = styled(Button)<{ $width: string }>`
 interface IProps {
   msg: string;
   width: string;
-  clickHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  clickHandler?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const DefaultButton: React.FunctionComponent<IProps> = ({

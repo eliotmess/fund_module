@@ -1,23 +1,22 @@
 //* third party packages
-import React, { useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 //* components
 import { Text, BoldSpan } from "components/common/Text";
 import TooltipComponent from "components/common/Tooltip";
 //* hooks
 import { useTheme } from "theme/styled-components";
+//* other
+import { FormContext } from "FormContext";
 
 interface IProps {
-  fundGoal: number;
-  fundRaised: number;
   fundSubmitted: boolean;
 }
 
 const FeedbackTooltip: React.FunctionComponent<IProps> = ({
-  fundGoal,
-  fundRaised,
   fundSubmitted,
 }) => {
   const t = useTheme();
+  const { fundGoal, fundRaised } = useContext(FormContext);
 
   const tooltipColor = useMemo(() => {
     if (fundSubmitted || fundRaised >= fundGoal) {

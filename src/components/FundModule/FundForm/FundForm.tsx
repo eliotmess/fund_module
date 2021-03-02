@@ -1,5 +1,5 @@
 //* third party packages
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 //* components
 import { FundFormContainer, InfoContainer } from "./FundForm.style";
 import { Text, BoldSpan } from "components/common/Text";
@@ -7,17 +7,16 @@ import GiveFundForm from "components/FundModule/FundForm/Form";
 import TextButton from "components/common/buttons/TextButton";
 //* hooks
 import { useTheme } from "theme/styled-components";
+//* other
+import { FormContext } from "FormContext";
 
 interface IProps {
   handleSubmitFund: (v: number, resolve: () => void) => void;
-  noOfFunders: number;
 }
 
-const FundForm: React.FunctionComponent<IProps> = ({
-  handleSubmitFund,
-  noOfFunders,
-}) => {
+const FundForm: React.FunctionComponent<IProps> = ({ handleSubmitFund }) => {
   const t = useTheme();
+  const { noOfFunders } = useContext(FormContext);
   const [infoExpanded, setInfoExpanded] = useState(false);
 
   const handleExpandInfo = useCallback(() => {
