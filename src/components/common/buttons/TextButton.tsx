@@ -2,7 +2,6 @@ import styled from "theme/styled-components";
 import Button from "components/common/buttons/Button";
 
 const Btn = styled(Button)`
-  display: inline;
   text-align: left;
   width: fit-content;
   font-family: RalewayMediumItalic;
