@@ -32,4 +32,14 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## TODOs
+
+- Add custom validation and error handling
+
+- Use react-intl or similar tool to store text values
+
+- Extend testing – more unit tests can be added, E2E testing would be useful
+
+- Improve components reusability if needed
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
