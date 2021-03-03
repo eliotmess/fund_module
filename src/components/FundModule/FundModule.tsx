@@ -35,10 +35,9 @@ const FundModule: React.FunctionComponent = () => {
   }, [fundSubmitted]);
 
   const handleSubmitFund = useCallback(
-    (v: number, resolve: () => void) => {
+    (v: number) => {
       setFundRaised(fundRaised + v);
       setNoOfFunders(noOfFunders + 1);
-      resolve();
       setFundSubmitted(true);
     },
     [fundRaised, setFundRaised, noOfFunders, setNoOfFunders]

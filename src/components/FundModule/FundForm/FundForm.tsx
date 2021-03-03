@@ -11,7 +11,7 @@ import { useTheme } from "theme/styled-components";
 import { FormContext } from "FormContext";
 
 interface IProps {
-  handleSubmitFund: (v: number, resolve: () => void) => void;
+  handleSubmitFund: (v: number) => void;
 }
 
 const FundForm: React.FunctionComponent<IProps> = ({ handleSubmitFund }) => {
@@ -29,12 +29,13 @@ const FundForm: React.FunctionComponent<IProps> = ({ handleSubmitFund }) => {
         <BoldSpan>Only 3 days left</BoldSpan> to fund this project.
       </Text>
       <Text $marginBottom={t.spacing.normal}>
-        Join the <BoldSpan>{noOfFunders}</BoldSpan> other donors who have
-        already supported this project. Every dollar helps.
+        Join the <BoldSpan data-testid="no-of-funders">{noOfFunders} </BoldSpan>
+        other donors who have already supported this project. Every dollar
+        helps.
       </Text>
       <GiveFundForm submitHandler={handleSubmitFund} />
       <TextButton msg="Why give $50?" clickHandler={handleExpandInfo} />
-      <InfoContainer $expanded={infoExpanded}>
+      <InfoContainer data-testid="info-container" $expanded={infoExpanded}>
         <Text $color={t.colors.blue} $size={t.fontSize.xs}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
           vel elit condimentum gravida. Cras sed urna at elit molestie

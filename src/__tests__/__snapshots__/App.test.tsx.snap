@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component test suite should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-fodVxV eLcxPP"
+  >
+    <div
+      class="sc-bdfBwQ oaOrU"
+    >
+      <div
+        class="sc-eCssSg kKBOYV"
+        data-testid="tooltip"
+      >
+        <p
+          class="sc-dlfnbm iwHpPe"
+        >
+          <span
+            class="sc-hKgILt fBJPPo"
+          >
+            $443
+          </span>
+           still needed for this project
+        </p>
+      </div>
+      <div
+        class="sc-iBPRYJ hJXFUR"
+      >
+        <div
+          class="sc-jSgupP NLqll"
+        >
+          <div
+            class="sc-gKsewC kUhkG"
+          />
+        </div>
+        <div
+          class="sc-fubCfw hrEyXk"
+        >
+          <p
+            class="sc-dlfnbm jLlgbg"
+          >
+            <span
+              class="sc-hKgILt fBJPPo"
+            >
+              Only 3 days left
+            </span>
+             to fund this project.
+          </p>
+          <p
+            class="sc-dlfnbm gkiHkg"
+          >
+            Join the 
+            <span
+              class="sc-hKgILt fBJPPo"
+              data-testid="no-of-funders"
+            >
+              42 
+            </span>
+            other donors who have already supported this project. Every dollar helps.
+          </p>
+          <form
+            class="sc-pFZIQ kYRMZb"
+          >
+            <div
+              class="sc-crrsfI iIXOer"
+            >
+              <input
+                class="sc-dQppl bwmmfM"
+                min="1"
+                placeholder="50"
+                type="number"
+                value="50"
+              />
+            </div>
+            <button
+              class="sc-kEjbxe sc-iqHYGH ibOCca gsgfvY"
+              type="submit"
+            >
+              Give Now
+            </button>
+          </form>
+          <button
+            class="sc-kEjbxe sc-bqyKva ibOCca sHFwn"
+            type="button"
+          >
+            Why give $50?
+          </button>
+          <div
+            class="sc-jrAGrp dIffPM"
+            data-testid="info-container"
+          >
+            <p
+              class="sc-dlfnbm fnOEaS"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod vel elit condimentum gravida. Cras sed urna at elit molestie pellentesque sed vulputate dui. Praesent et eleifend ipsum. Cras nec elit diam. Donec non lobortis neque. Duis consequat condimentum blandit. Nulla auctor sagittis dolor a pretium. Curabitur a porta sem. Integer congue lorem urna, eget luctus nisi laoreet nec. Nullam et lacus vitae felis tincidunt vehicula et sed augue.
+            </p>
+            <button
+              class="sc-kEjbxe sc-bqyKva ibOCca sHFwn"
+              type="button"
+            >
+              Click to hide more info
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-gsTCUz ioHoIT"
+      >
+        <button
+          class="sc-kEjbxe sc-kstrdz ibOCca jNZAlw"
+          type="button"
+        >
+          Save for later
+        </button>
+        <a
+          class="sc-hBEYos ecrwfr"
+          href="mailto:?subject=Check%20this%20Fundraise&body=Hello%20Friend!%20It's%20worth%20your%20%2450."
+        >
+          <button
+            class="sc-kEjbxe sc-kstrdz ibOCca gChZHF"
+            type="button"
+          >
+            Tell your friends
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

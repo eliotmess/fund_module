@@ -16,7 +16,7 @@ import LocalStorageService from "services/LocalStorageService";
 import { ELocalStorage } from "constants/index";
 
 interface IProps {
-  submitHandler: (v: number, resolve: () => void) => void;
+  submitHandler: (v: number) => void;
 }
 
 const GiveFundForm: React.FunctionComponent<IProps> = ({ submitHandler }) => {
@@ -57,7 +57,8 @@ const GiveFundForm: React.FunctionComponent<IProps> = ({ submitHandler }) => {
         if (!value) {
           reject();
         } else {
-          submitHandler(value, resolve);
+          submitHandler(value);
+          resolve();
         }
       })
         .then((value) => value)

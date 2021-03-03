@@ -18,7 +18,8 @@ const Tooltip = styled.div<{ bgColor: string }>`
     height: 0;
     border-width: 7px;
     border-style: solid;
-    border-color: ${({ bgColor }) => bgColor} transparent transparent transparent;
+    border-color: ${({ bgColor }) => bgColor} transparent transparent
+      transparent;
     top: 100%;
     right: 20%;
   }
@@ -28,8 +29,13 @@ interface IProps {
   bgColor: string;
 }
 
-const TooltipComponent: React.FunctionComponent<IProps> = ({ children, bgColor }) => (
-  <Tooltip bgColor={bgColor}>{children}</Tooltip>
+const TooltipComponent: React.FunctionComponent<IProps> = ({
+  children,
+  bgColor,
+}) => (
+  <Tooltip data-testid="tooltip" bgColor={bgColor}>
+    {children}
+  </Tooltip>
 );
 
 export default TooltipComponent;
