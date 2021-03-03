@@ -10,7 +10,8 @@ const InputWrapper = styled.div`
     font-size: ${({ theme }) => theme.fontSize.m};
     color: ${({ theme }) => theme.colors.darkText};
     position: absolute;
-    top: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 10px;
     z-index: 1;
   }
